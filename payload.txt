@@ -13,13 +13,13 @@ ENTER
 DELAY 250
 
 REM Backup Wallpaper
-STRING Copy-Item "$HOME\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper" -Destination C:\Users\marha\AppData\Local\Temp\YourOldWallpaper.png
+STRING Copy-Item "$HOME\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper" -Destination $HOME\AppData\Local\Temp\YourOldWallpaper.png
 DELAY 250
 
 REM download new wallpaper
-STRING Invoke-WebRequest https://raw.githubusercontent.com/WalkTheEarth/ratlocker/main/RatLocker.png -OutFile C:\Users\marha\AppData\Local\Temp\RatLocker.png
+STRING Invoke-WebRequest https://raw.githubusercontent.com/WalkTheEarth/ratlocker/main/RatLocker.png -OutFile $HOME\AppData\Local\Temp\RatLocker.png
 REM Set new wallpaper
-STRING $MyWallpaper="C:\Users\marha\AppData\Local\Temp\RatLocker.png"
+STRING $MyWallpaper="$HOME\AppData\Local\Temp\RatLocker.png"
 ENTER
 STRING $code = @'
 ENTER
