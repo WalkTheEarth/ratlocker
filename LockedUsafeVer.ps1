@@ -1,5 +1,5 @@
 ﻿Copy-Item "$HOME\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper" -Destination $HOME\AppData\Local\Temp\YourOldWallpaper.png
-Invoke-WebRequest https://raw.githubusercontent.com/WalkTheEarth/ratlocker/main/RatLocker.png -OutFile $HOME\AppData\Local\Temp\RatLocker.png
+Invoke-WebRequest https://raw.githubusercontent.com/WalkTheEarth/ratlocker/main/bg.png -OutFile $HOME\AppData\Local\Temp\RatLocker.png
 $MyWallpaper="$HOME\AppData\Local\Temp\RatLocker.png"
 $code = @'
 using System.Runtime.InteropServices;
